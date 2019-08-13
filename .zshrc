@@ -99,10 +99,6 @@ export PATH=$PATH:~/.scripts/
 export TERM=xterm-256color
 
 # SSH Completion
-if [ -z ${TMUX} ]; then
-	tmux attach || tmux
-fi
-
 h=()
 if [[ -r ~/.ssh/config ]]; then
   h=($h ${${${(@M)${(f)"$(cat ~/.ssh/config)"}:#Host *}#Host }:#*[*?]*})
@@ -113,4 +109,9 @@ fi
 if [[ $#h -gt 0 ]]; then
   zstyle ':completion:*:ssh:*' hosts $h
   zstyle ':completion:*:slogin:*' hosts $h
+fi
+
+# Tmux
+if [ -z ${TMUX} ]; then
+	tmux attach || tmux
 fi
