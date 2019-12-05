@@ -1,0 +1,5 @@
+#!/bin/bash
+
+find * -name '*.*' | while read file; do
+    mv "$file" "./$(tr / _ <<< "$file")"
+done
