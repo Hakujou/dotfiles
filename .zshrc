@@ -95,6 +95,9 @@ source $ZSH/oh-my-zsh.sh
 # Personal scripts
 export PATH=$PATH:~/.scripts/
 
+# Aliases
+alias unzip='7z x'
+
 # iTerm Fixes
 export TERM=xterm-256color
 
