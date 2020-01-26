@@ -9,6 +9,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="agnoster"
+[ -d ~/.oh-my-zsh/custom/themes/powerlevel9k ] && ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -98,6 +99,10 @@ export PATH=$PATH:~/.scripts/
 # Aliases
 alias unzip='7z x'
 
+dock() {
+	source ~/.scripts/remote-docker "$1"
+}
+
 # iTerm Fixes
 export TERM=xterm-256color
 
@@ -113,6 +118,10 @@ if [[ $#h -gt 0 ]]; then
   zstyle ':completion:*:ssh:*' hosts $h
   zstyle ':completion:*:slogin:*' hosts $h
 fi
+
+# Powerlevel9k
+POWERLEVEL9K_DISABLE_RPROMPT=true
+POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND=white
 
 # Tmux
 if [ -z ${TMUX} ]; then
