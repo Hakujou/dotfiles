@@ -8,7 +8,7 @@ else
 	        export DOCKER_HOST=tcp://swarm01.dmz.internal.lecat.pro:2376
         	export DOCKER_HOST_NICE=DMZ
 	elif [ $1 = "SEC" ]; then
-        	export DOCKER_HOST=tcp://swarm01.internal.lecat.pro:2376
+        	export DOCKER_HOST=tcp://swarm1.secure.home.lecat.network:2375
 	        export DOCKER_HOST_NICE=SEC
 	fi
 
