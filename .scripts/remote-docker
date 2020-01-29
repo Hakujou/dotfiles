@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -z "$1" ]; then
-        export DOCKER_HOST=/var/run/docker.sock
+        export DOCKER_HOST=unix:///var/run/docker.sock
         export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
 else
 	if [ $1 = "DMZ" ]; then
