@@ -1,13 +1,13 @@
-#!/bin/bash
+#!/bin/zsh
 
 if [ -z "$1" ]; then
         export DOCKER_HOST=unix:///var/run/docker.sock
         export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
 else
-	if [ $1 = "DMZ" ]; then
-	        export DOCKER_HOST=tcp://swarm01.dmz.internal.lecat.pro:2376
+	if [ $1:u = "DMZ" ]; then
+	        export DOCKER_HOST=tcp://swarm01.dmz.home.lecat.network:2375
         	export DOCKER_HOST_NICE=DMZ
-	elif [ $1 = "SEC" ]; then
+	elif [ $1:u = "SEC" ]; then
         	export DOCKER_HOST=tcp://swarm1.secure.home.lecat.network:2375
 	        export DOCKER_HOST_NICE=SEC
 	fi
