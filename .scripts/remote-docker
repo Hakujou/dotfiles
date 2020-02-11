@@ -4,13 +4,20 @@ if [ -z "$1" ]; then
         export DOCKER_HOST=unix:///var/run/docker.sock
         export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
 else
-	if [ $1:u = "DMZ" ]; then
+	case $1:u in
+	DMZ)
 	        export DOCKER_HOST=tcp://swarm1.dmz.home.lecat.network:2375
         	export DOCKER_ENV=dmz
-	elif [ $1:u = "SEC" ]; then
+		;;
+	SEC)
         	export DOCKER_HOST=tcp://swarm1.secure.home.lecat.network:2375
 	        export DOCKER_ENV=sec
-	fi
+		;;
+	ZBX-DMZ)
+                export DOCKER_HOST=tcp://zabbix-proxy.dmz.home.lecat.network:2375
+                export DOCKER_ENV=zbx-dmz
+		;;
+	esac
 
 	export POWERLEVEL9K_CUSTOM_SWARM="echo 🐳 $DOCKER_ENV:u"
         export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_swarm dir vcs)
