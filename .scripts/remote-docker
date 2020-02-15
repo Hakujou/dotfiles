@@ -17,6 +17,10 @@ else
                 export DOCKER_HOST=tcp://zabbix-proxy.dmz.home.lecat.network:2375
                 export DOCKER_ENV=zbx-dmz
 		;;
+	STORAGE)
+		export DOCKER_HOST=tcp://storage.secure.home.lecat.network:2375
+		export DOCKER_ENV=storage
+		;;
 	esac
 
 	export POWERLEVEL9K_CUSTOM_SWARM="echo 🐳 $DOCKER_ENV:u"
