@@ -5,5 +5,8 @@ find $1 -type f -name '*' | while read FILE ; do
 	newfile="$(echo ${newfile} |sed -e 's/ ... BluRay1080p ! 2016//')" ;
 	newfile="$(echo ${newfile} |sed -e 's/ ... WebDl1080p ! 2017/ WEB-DL 1080p/')" ;
 	newfile="$(echo ${newfile} |sed -e 's/ ... WebDl1080p ! 2018/ WEB-DL 1080p/')" ;
+	newfile="$(echo ${newfile} |sed -e 's/FHD_6M-//')" ;
+	newfile="$(echo ${newfile} |sed -e 's/\[FHD6m\]//')" ;
+	newfile="$(echo ${newfile} |sed -e 's/\[FHD\]//')" ;
 	mv "${FILE}" "${newfile}" ;
 done 
