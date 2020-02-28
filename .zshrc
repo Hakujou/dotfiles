@@ -98,9 +98,8 @@ export PATH=$PATH:~/.scripts/
 
 # Aliases
 alias unzip='7z x'
-
 dock() {
-	source ~/.scripts/remote-docker "$1"
+       source ~/.scripts/remote-docker "$@"
 }
 
 # iTerm Fixes
