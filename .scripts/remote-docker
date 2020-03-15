@@ -12,9 +12,9 @@ else
 	        export DOCKER_HOST=tcp://swarm$NODE.dmz.home.lecat.network:2375
         	export DOCKER_ENV=dmz
 		;;
-	SEC)
+	SECURE)
         	export DOCKER_HOST=tcp://swarm$NODE.secure.home.lecat.network:2375
-	        export DOCKER_ENV=sec
+	        export DOCKER_ENV=secure
 		export http_proxy=http://adm.secure.home.lecat.network:3128
 		;;
 	ZBX-DMZ)
