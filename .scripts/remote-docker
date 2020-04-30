@@ -28,6 +28,10 @@ else
 		export DOCKER_ENV=storage
 		export http_proxy=http://adm.secure.home.lecat.network:3128
 		;;
+	PLEX)
+		export DOCKER_HOST=tcp://plex.dmz.home.lecat.network:2375
+                export DOCKER_ENV=plex
+                export http_proxy=http://adm.secure.home.lecat.network:3128
 	esac
 
 	export POWERLEVEL9K_CUSTOM_SWARM="echo 🐳 $DOCKER_ENV:u"
