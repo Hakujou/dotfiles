@@ -29,7 +29,7 @@ else
 		export http_proxy=http://adm.secure.home.lecat.network:3128
 		;;
 	PLEX)
-		export DOCKER_HOST=tcp://plex.dmz.home.lecat.network:2375
+		export DOCKER_HOST=tcp://plex.secure.home.lecat.network:2375
                 export DOCKER_ENV=plex
                 export http_proxy=http://adm.secure.home.lecat.network:3128
 		;;
