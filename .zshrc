@@ -105,6 +105,9 @@ dock() {
 # iTerm Fixes
 export TERM=xterm-256color
 
+# GPG
+export GPG_TTY=$(tty)
+
 # SSH Completion
 h=()
 if [[ -r ~/.ssh/config ]]; then
