@@ -108,6 +108,9 @@ export TERM=xterm-256color
 # GPG
 export GPG_TTY=$(tty)
 
+# AWS-CLI tweaks
+export AWS_PAGER=""
+
 # SSH Completion
 h=()
 if [[ -r ~/.ssh/config ]]; then
