@@ -33,6 +33,11 @@ else
                 export DOCKER_ENV=plex
                 export http_proxy=http://adm.secure.home.lecat.network:3128
 		;;
+	SMOKEPING-HOME)
+                export DOCKER_HOST=tcp://smokeping.dmz.home.lecat.network:2375
+                export DOCKER_ENV=smokeping-home
+                export http_proxy=http://adm.secure.home.lecat.network:3128
+                ;;
 	SMOKEPING-OSC)
 		export DOCKER_HOST=tcp://smokeping.dmz.osc.lecat.network:2375
 		export DOCKER_ENV=smokeping-osc
