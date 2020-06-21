@@ -10,6 +10,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="agnoster"
 [ -d ~/.oh-my-zsh/custom/themes/powerlevel9k ] && ZSH_THEME="powerlevel9k/powerlevel9k"
+[ -d ~/.oh-my-zsh/custom/themes/powerlevel10k ] && ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
