@@ -103,23 +103,27 @@ alias unzip='7z x'
 dock() {
 	source ~/.scripts/remote-docker "$@"
 }
+def() {
+    [ ! -z $VIRTUAL_ENV ] && deactivate
+    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_swarm context virtualenv dir vcs)
+    unset POWERLEVEL9K_CUSTOM_ENV
+    unset POWERLEVEL9K_CUSTOM_ENV_FOREGROUND
+    unset POWERLEVEL9K_CUSTOM_ENV_BACKGROUND
+}
 work() {
+	. ~/Outscale/venv/bin/activate
 	export POWERLEVEL9K_CUSTOM_ENV="echo WORK"
 	export POWERLEVEL9K_CUSTOM_ENV_FOREGROUND="white"
 	export POWERLEVEL9K_CUSTOM_ENV_BACKGROUND="darkred"
 	export AWS_DEFAULT_PROFILE=euw2
-	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_swarm custom_env aws dir virtualenv vcs)
+	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_swarm custom_env aws virtualenv dir vcs)
 }
 anigme() {
+	def
 	export POWERLEVEL9K_CUSTOM_ENV="echo ANIGME"
 	export POWERLEVEL9K_CUSTOM_ENV_BACKGROUND="gold1"
-	unset POWERLEVEL9K_CUSTOM_ENV_FOREGROUND
 	export AWS_DEFAULT_PROFILE=anigme
-	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_swarm custom_env aws dir virtualenv vcs)
-}
-default() {
-	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_swarm context dir virtualenv vcs)
-	unset POWERLEVEL9K_CUSTOM_ENV
+	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_swarm custom_env aws virtualenv dir vcs)
 }
 
 # iTerm Fixes
