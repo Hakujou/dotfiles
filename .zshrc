@@ -127,7 +127,6 @@ fi
 
 # Powerlevel9k
 POWERLEVEL9K_DISABLE_RPROMPT=true
-POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND=white
 
 # Tmux
 if [ -z ${TMUX} ]; then
