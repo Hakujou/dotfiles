@@ -65,6 +65,7 @@ ZSH_THEME="agnoster"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
+unsetopt AUTO_CD
 
 source $ZSH/oh-my-zsh.sh
 
@@ -100,7 +101,23 @@ export PATH=$PATH:~/.scripts/
 # Aliases
 alias unzip='7z x'
 dock() {
-       source ~/.scripts/remote-docker "$@"
+	source ~/.scripts/remote-docker "$@"
+}
+work() {
+	export POWERLEVEL9K_CUSTOM_WORK="echo WORK"
+	export POWERLEVEL9K_CUSTOM_WORK_FOREGROUND="white"
+	export POWERLEVEL9K_CUSTOM_WORK_BACKGROUND="darkred"
+	export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_work aws dir virtualenv vcs)
+	export AWS_DEFAULT_PROFILE=euw2
+}
+anigme() {
+	export POWERLEVEL9K_CUSTOM_ANIGME="echo ANIGME"
+	export POWERLEVEL9K_CUSTOM_ANIGME_BACKGROUND="gold1"
+	export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_anigme aws dir virtualenv vcs)
+	export AWS_DEFAULT_PROFILE=anigme
+}
+default() {
+	unset POWERLEVEL9K_LEFT_PROMPT_ELEMENTS
 }
 
 # iTerm Fixes
@@ -111,22 +128,24 @@ export GPG_TTY=$(tty)
 
 # AWS-CLI tweaks
 export AWS_PAGER=""
+export AWS_DEFAULT_PROFILE=euw2
 
 # SSH Completion
 h=()
 if [[ -r ~/.ssh/config ]]; then
-  h=($h ${${${(@M)${(f)"$(cat ~/.ssh/config)"}:#Host *}#Host }:#*[*?]*})
+	h=($h ${${${(@M)${(f)"$(cat ~/.ssh/config)"}:#Host *}#Host }:#*[*?]*})
 fi
 if [[ -r ~/.ssh/known_hosts ]]; then
-  h=($h ${${${(f)"$(cat ~/.ssh/known_hosts{,2} || true)"}%%\ *}%%,*}) 2>/dev/null
+	h=($h ${${${(f)"$(cat ~/.ssh/known_hosts{,2} || true)"}%%\ *}%%,*}) 2>/dev/null
 fi
 if [[ $#h -gt 0 ]]; then
-  zstyle ':completion:*:ssh:*' hosts $h
-  zstyle ':completion:*:slogin:*' hosts $h
+	zstyle ':completion:*:ssh:*' hosts $h
+	zstyle ':completion:*:slogin:*' hosts $h
 fi
 
 # Powerlevel9k
 POWERLEVEL9K_DISABLE_RPROMPT=true
+POWERLEVEL9K_CONTEXT_FOREGROUND=white
 
 # Tmux
 if [ -z ${TMUX} ]; then
