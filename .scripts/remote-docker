@@ -1,9 +1,8 @@
 #!/bin/zsh
 
 if [ -z "$1" ]; then
-	if [ -z "$OLD_POWERLEVEL9k" ]; then OLD_POWERLEVEL9K=${POWERLEVEL9K_LEFT_PROMPT_ELEMENTS}; fi
 	export DOCKER_HOST=unix:///var/run/docker.sock
-	export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=${OLD_POWERLEVEL9K}
+	unset POWERLEVEL9K_CUSTOM_SWARM
 	unset http_proxy
 else
 	NODE=${2:-1}
@@ -46,8 +45,6 @@ else
 		;;
 	esac
 
-	export OLD_POWERLEVEL9K=${POWERLEVEL9K_LEFT_PROMPT_ELEMENTS}
 	export POWERLEVEL9K_CUSTOM_SWARM_BACKGROUND="white"
 	export POWERLEVEL9K_CUSTOM_SWARM="echo 🐳 $DOCKER_ENV:u"
-	export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_swarm dir vcs)
 fi

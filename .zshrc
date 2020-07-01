@@ -104,20 +104,22 @@ dock() {
 	source ~/.scripts/remote-docker "$@"
 }
 work() {
-	export POWERLEVEL9K_CUSTOM_WORK="echo WORK"
-	export POWERLEVEL9K_CUSTOM_WORK_FOREGROUND="white"
-	export POWERLEVEL9K_CUSTOM_WORK_BACKGROUND="darkred"
-	export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_work aws dir virtualenv vcs)
+	export POWERLEVEL9K_CUSTOM_ENV="echo WORK"
+	export POWERLEVEL9K_CUSTOM_ENV_FOREGROUND="white"
+	export POWERLEVEL9K_CUSTOM_ENV_BACKGROUND="darkred"
 	export AWS_DEFAULT_PROFILE=euw2
+	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_swarm custom_env aws dir virtualenv vcs)
 }
 anigme() {
-	export POWERLEVEL9K_CUSTOM_ANIGME="echo ANIGME"
-	export POWERLEVEL9K_CUSTOM_ANIGME_BACKGROUND="gold1"
-	export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_anigme aws dir virtualenv vcs)
+	export POWERLEVEL9K_CUSTOM_ENV="echo ANIGME"
+	export POWERLEVEL9K_CUSTOM_ENV_BACKGROUND="gold1"
+	unset POWERLEVEL9K_CUSTOM_ENV_FOREGROUND
 	export AWS_DEFAULT_PROFILE=anigme
+	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_swarm custom_env aws dir virtualenv vcs)
 }
 default() {
-	unset POWERLEVEL9K_LEFT_PROMPT_ELEMENTS
+	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_swarm context dir virtualenv vcs)
+	unset POWERLEVEL9K_CUSTOM_ENV
 }
 
 # iTerm Fixes
@@ -146,6 +148,7 @@ fi
 # Powerlevel9k
 POWERLEVEL9K_DISABLE_RPROMPT=true
 POWERLEVEL9K_CONTEXT_FOREGROUND=white
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_swarm context dir virtualenv vcs)
 
 # Tmux
 if [ -z ${TMUX} ]; then
