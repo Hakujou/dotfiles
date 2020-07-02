@@ -106,6 +106,8 @@ alias unzip='7z x'
 dock() {
 	source ~/.scripts/remote-docker "$@"
 }
+
+# Environments
 def() {
     [ ! -z $VIRTUAL_ENV ] && deactivate
     POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_swarm context dir vcs)
@@ -116,7 +118,7 @@ def() {
 	export POWERLEVEL9K_CONTEXT_FOREGROUND=white
 	export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon custom_env aws dir vcs)
 	export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(custom_swarm virtualenv)
-	export POWERLEVEL9K_AWS_SHOW_ON_COMMAND=aws
+	export POWERLEVEL9K_AWS_SHOW_ON_COMMAND='aws|amz|s3cmd|terraform|packer'
 	export POWERLEVEL9K_CUSTOM_ENV_FOREGROUND="white"
 	export POWERLEVEL9K_CUSTOM_ENV_CONTENT_EXPANSION='%f%B${P9K_CONTENT}'
     export POWERLEVEL9K_CUSTOM_ENV_BACKGROUND="darkred"
@@ -137,6 +139,11 @@ anigme() {
 	export POWERLEVEL9K_CUSTOM_ENV="echo ANIGME"
 	unset POWERLEVEL9K_AWS_SHOW_ON_COMMAND
 	export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(${POWERLEVEL9K_LEFT_PROMPT_ELEMENTS[@]/os_icon})
+}
+
+# Aliases
+amz() {
+	export AWS_DEFAULT_PROFILE=$1
 }
 
 # iTerm Fixes
