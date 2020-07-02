@@ -105,25 +105,31 @@ dock() {
 }
 def() {
     [ ! -z $VIRTUAL_ENV ] && deactivate
-    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_swarm context virtualenv dir vcs)
+    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_swarm context dir vcs)
+	export AWS_DEFAULT_PROFILE=euw2
     unset POWERLEVEL9K_CUSTOM_ENV
     unset POWERLEVEL9K_CUSTOM_ENV_FOREGROUND
     unset POWERLEVEL9K_CUSTOM_ENV_BACKGROUND
+	export POWERLEVEL9K_CONTEXT_FOREGROUND=white
+	export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_swarm context virtualenv dir vcs)
+	export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(aws)
+	export POWERLEVEL9K_AWS_SHOW_ON_COMMAND=aws
 }
 work() {
+	def
 	. ~/Outscale/venv/bin/activate
+	export AWS_DEFAULT_PROFILE=euw2
 	export POWERLEVEL9K_CUSTOM_ENV="echo WORK"
 	export POWERLEVEL9K_CUSTOM_ENV_FOREGROUND="white"
 	export POWERLEVEL9K_CUSTOM_ENV_BACKGROUND="darkred"
-	export AWS_DEFAULT_PROFILE=euw2
-	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_swarm custom_env aws virtualenv dir vcs)
+	export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_swarm custom_env virtualenv dir vcs)
 }
 anigme() {
 	def
+	export AWS_DEFAULT_PROFILE=anigme
 	export POWERLEVEL9K_CUSTOM_ENV="echo ANIGME"
 	export POWERLEVEL9K_CUSTOM_ENV_BACKGROUND="gold1"
-	export AWS_DEFAULT_PROFILE=anigme
-	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_swarm custom_env aws virtualenv dir vcs)
+	export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_swarm custom_env virtualenv dir vcs)
 }
 
 # iTerm Fixes
@@ -134,7 +140,6 @@ export GPG_TTY=$(tty)
 
 # AWS-CLI tweaks
 export AWS_PAGER=""
-export AWS_DEFAULT_PROFILE=euw2
 
 # SSH Completion
 h=()
@@ -149,12 +154,10 @@ if [[ $#h -gt 0 ]]; then
 	zstyle ':completion:*:slogin:*' hosts $h
 fi
 
-# Powerlevel9k
-POWERLEVEL9K_DISABLE_RPROMPT=true
-POWERLEVEL9K_CONTEXT_FOREGROUND=white
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_swarm context dir virtualenv vcs)
-
 # Tmux
 if [ -z ${TMUX} ]; then
 	tmux attach || tmux
 fi
+
+# Default env
+def
