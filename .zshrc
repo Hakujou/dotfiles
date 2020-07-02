@@ -98,6 +98,10 @@ source $ZSH/oh-my-zsh.sh
 # Personal scripts
 export PATH=$PATH:~/.scripts/
 
+# Powerlevel10k style
+POWERLEVEL9K_MODE=nerdfont-complete
+POWERLEVEL9K_ICON_PADDING=none
+
 # Aliases
 alias unzip='7z x'
 dock() {
@@ -111,25 +115,29 @@ def() {
     unset POWERLEVEL9K_CUSTOM_ENV_FOREGROUND
     unset POWERLEVEL9K_CUSTOM_ENV_BACKGROUND
 	export POWERLEVEL9K_CONTEXT_FOREGROUND=white
-	export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_swarm context virtualenv dir vcs)
-	export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(aws)
+	export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon custom_env aws dir vcs)
+	export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(custom_swarm virtualenv)
 	export POWERLEVEL9K_AWS_SHOW_ON_COMMAND=aws
+	export POWERLEVEL9K_CUSTOM_ENV_FOREGROUND="white"
+	export POWERLEVEL9K_CUSTOM_ENV_CONTENT_EXPANSION='%f%B${P9K_CONTENT}'
+    export POWERLEVEL9K_CUSTOM_ENV_BACKGROUND="darkred"
+	export POWERLEVEL9K_OS_ICON_FOREGROUND=black
+	export POWERLEVEL9K_OS_ICON_BACKGROUND=white
 }
 work() {
 	def
 	. ~/Outscale/venv/bin/activate
 	export AWS_DEFAULT_PROFILE=euw2
 	export POWERLEVEL9K_CUSTOM_ENV="echo WORK"
-	export POWERLEVEL9K_CUSTOM_ENV_FOREGROUND="white"
-	export POWERLEVEL9K_CUSTOM_ENV_BACKGROUND="darkred"
-	export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_swarm custom_env virtualenv dir vcs)
+	unset POWERLEVEL9K_AWS_SHOW_ON_COMMAND
+	export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(${POWERLEVEL9K_LEFT_PROMPT_ELEMENTS[@]/os_icon})
 }
 anigme() {
 	def
 	export AWS_DEFAULT_PROFILE=anigme
 	export POWERLEVEL9K_CUSTOM_ENV="echo ANIGME"
-	export POWERLEVEL9K_CUSTOM_ENV_BACKGROUND="gold1"
-	export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_swarm custom_env virtualenv dir vcs)
+	unset POWERLEVEL9K_AWS_SHOW_ON_COMMAND
+	export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(${POWERLEVEL9K_LEFT_PROMPT_ELEMENTS[@]/os_icon})
 }
 
 # iTerm Fixes
