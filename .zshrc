@@ -100,7 +100,6 @@ export PATH=$PATH:~/.scripts/
 
 # Powerlevel10k style
 POWERLEVEL9K_MODE=nerdfont-complete
-POWERLEVEL9K_ICON_PADDING=none
 
 # Aliases
 alias unzip='7z x'
