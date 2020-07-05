@@ -148,6 +148,7 @@ amz() {
 	export OUTSCALE_REGION=$(aws configure get `echo $1`.region)
 	export OUTSCALE_ACCESSKEYID=$(aws configure get `echo $1`.aws_access_key_id)
 	export OUTSCALE_SECRETKEYID=$(aws configure get `echo $1`.aws_secret_access_key)
+	export TF_VAR_REGION=$(aws configure get `echo $1`.region)
 }
 
 # iTerm Fixes
