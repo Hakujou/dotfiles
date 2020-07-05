@@ -111,7 +111,7 @@ dock() {
 def() {
     [ ! -z $VIRTUAL_ENV ] && deactivate
     POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_swarm context dir vcs)
-	export AWS_DEFAULT_PROFILE=euw2
+	amz euw2
     unset POWERLEVEL9K_CUSTOM_ENV
     unset POWERLEVEL9K_CUSTOM_ENV_FOREGROUND
     unset POWERLEVEL9K_CUSTOM_ENV_BACKGROUND
@@ -128,8 +128,6 @@ def() {
 work() {
 	def
 	. ~/Outscale/venv/bin/activate
-	export AWS_DEFAULT_PROFILE=euw2
-	export OUTSCALE_REGION=eu-west-2
 	export POWERLEVEL9K_CUSTOM_ENV="echo WORK"
 	unset POWERLEVEL9K_AWS_SHOW_ON_COMMAND
 	export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(${POWERLEVEL9K_LEFT_PROMPT_ELEMENTS[@]/os_icon})
@@ -137,8 +135,7 @@ work() {
 }
 anigme() {
 	def
-	export AWS_DEFAULT_PROFILE=anigme
-	export OUTSCALE_REGION=eu-west-2
+	amz anigme
 	export POWERLEVEL9K_CUSTOM_ENV="echo ANIGME"
 	unset POWERLEVEL9K_AWS_SHOW_ON_COMMAND
 	export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(${POWERLEVEL9K_LEFT_PROMPT_ELEMENTS[@]/os_icon})
@@ -149,6 +146,8 @@ anigme() {
 amz() {
 	export AWS_DEFAULT_PROFILE=$1
 	export OUTSCALE_REGION=$(aws configure get `echo $1`.region)
+	export OUTSCALE_ACCESSKEYID=$(aws configure get `echo $1`.aws_access_key_id)
+	export OUTSCALE_SECRETKEYID=$(aws configure get `echo $1`.aws_secret_access_key)
 }
 
 # iTerm Fixes
