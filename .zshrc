@@ -129,6 +129,7 @@ work() {
 	def
 	. ~/Outscale/venv/bin/activate
 	export AWS_DEFAULT_PROFILE=euw2
+	export OUTSCALE_REGION=eu-west-2
 	export POWERLEVEL9K_CUSTOM_ENV="echo WORK"
 	unset POWERLEVEL9K_AWS_SHOW_ON_COMMAND
 	export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(${POWERLEVEL9K_LEFT_PROMPT_ELEMENTS[@]/os_icon})
@@ -137,6 +138,7 @@ work() {
 anigme() {
 	def
 	export AWS_DEFAULT_PROFILE=anigme
+	export OUTSCALE_REGION=eu-west-2
 	export POWERLEVEL9K_CUSTOM_ENV="echo ANIGME"
 	unset POWERLEVEL9K_AWS_SHOW_ON_COMMAND
 	export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(${POWERLEVEL9K_LEFT_PROMPT_ELEMENTS[@]/os_icon})
@@ -146,6 +148,7 @@ anigme() {
 # Aliases
 amz() {
 	export AWS_DEFAULT_PROFILE=$1
+	export OUTSCALE_REGION=$(aws configure get `echo $1`.region)
 }
 
 # iTerm Fixes
