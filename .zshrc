@@ -111,13 +111,12 @@ dock() {
 def() {
     [ ! -z $VIRTUAL_ENV ] && deactivate
     POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_swarm context dir vcs)
-	amz euw2
     unset POWERLEVEL9K_CUSTOM_ENV
     unset POWERLEVEL9K_CUSTOM_ENV_FOREGROUND
     unset POWERLEVEL9K_CUSTOM_ENV_BACKGROUND
 	export POWERLEVEL9K_CONTEXT_FOREGROUND=white
 	export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon custom_env aws dir vcs)
-	export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(custom_swarm virtualenv)
+	export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(custom_swarm terraform virtualenv)
 	export POWERLEVEL9K_AWS_SHOW_ON_COMMAND='aws|amz|s3cmd|terraform|packer'
 	export POWERLEVEL9K_CUSTOM_ENV_FOREGROUND="white"
 	export POWERLEVEL9K_CUSTOM_ENV_CONTENT_EXPANSION='%f%B${P9K_CONTENT}'
@@ -126,12 +125,19 @@ def() {
 	export POWERLEVEL9K_OS_ICON_BACKGROUND=white
 }
 work() {
-	def
+	amz euw2
 	. ~/Outscale/venv/bin/activate
 	export POWERLEVEL9K_CUSTOM_ENV="echo WORK"
 	unset POWERLEVEL9K_AWS_SHOW_ON_COMMAND
 	export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(${POWERLEVEL9K_LEFT_PROMPT_ELEMENTS[@]/os_icon})
 	cd ~/Outscale
+}
+torque() {
+	amz euw2
+	export POWERLEVEL9K_CUSTOM_ENV="echo TORQUE"
+	unset POWERLEVEL9K_AWS_SHOW_ON_COMMAND
+	export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(${POWERLEVEL9K_LEFT_PROMPT_ELEMENTS[@]/os_icon})
+	cd ~/Torque
 }
 anigme() {
 	def
@@ -148,7 +154,7 @@ amz() {
 	export OUTSCALE_REGION=$(aws configure get `echo $1`.region)
 	export OUTSCALE_ACCESSKEYID=$(aws configure get `echo $1`.aws_access_key_id)
 	export OUTSCALE_SECRETKEYID=$(aws configure get `echo $1`.aws_secret_access_key)
-	export TF_VAR_REGION=$(aws configure get `echo $1`.region)
+	export TF_VAR_region=$OUTSCALE_REGION
 }
 
 # iTerm Fixes
