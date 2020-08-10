@@ -18,9 +18,24 @@ else
 		export DOCKER_ENV=secure
 		export http_proxy=http://adm.secure.home.lecat.network:3128
 		;;
-	ZBX-DMZ)
+	ZABBIX)
+		export DOCKER_HOST=tcp://zabbix.secure.home.lecat.network:2375
+        export DOCKER_ENV=zabbix
+        export http_proxy=http://adm.secure.home.lecat.network:3128
+		;;
+	ZBX-PROXY-SECURE)
+		export DOCKER_HOST=tcp://zabbix-proxy.secure.home.lecat.network:2375
+        export DOCKER_ENV=zbx-proxy-secure
+        export http_proxy=http://adm.secure.home.lecat.network:3128
+        ;;
+	ZBX-PROXY-HW)
+        export DOCKER_HOST=tcp://zabbix-proxy-hw.secure.home.lecat.network:2375
+        export DOCKER_ENV=zbx-proxy-hw
+        export http_proxy=http://adm.secure.home.lecat.network:3128
+        ;;
+	ZBX-PROXY-DMZ)
 		export DOCKER_HOST=tcp://zabbix-proxy.dmz.home.lecat.network:2375
-		export DOCKER_ENV=zbx-dmz
+		export DOCKER_ENV=zbx-proxy-dmz
 		export http_proxy=http://adm.secure.home.lecat.network:3128
 		;;
 	STORAGE)
