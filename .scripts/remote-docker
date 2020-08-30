@@ -63,6 +63,11 @@ else
 		export DOCKER_ENV=smokeping-osc
 		export http_proxy=http://adm.secure.home.lecat.network:3128
 		;;
+	LG)
+		export DOCKER_HOST=tcp://lg.dmz.home.lecat.network:2375
+		export DOCKER_ENV=lg
+		export http_proxy=http://adm.secure.home.lecat.network:3128
+		;;
 	esac
 
 	export POWERLEVEL9K_CUSTOM_SWARM_BACKGROUND="white"
