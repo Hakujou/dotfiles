@@ -68,6 +68,11 @@ else
 		export DOCKER_ENV=lg
 		export http_proxy=http://adm.secure.home.lecat.network:3128
 		;;
+	NS-IOT)
+		export DOCKER_HOST=tcp://ns.iot.home.lecat.network:2375
+		export DOCKER_ENV=ns-iot
+		export http_proxy=http://adm.secure.home.lecat.network:3128
+        ;;
 	esac
 
 	export POWERLEVEL9K_CUSTOM_SWARM_BACKGROUND="white"
