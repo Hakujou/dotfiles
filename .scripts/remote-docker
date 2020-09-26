@@ -18,6 +18,11 @@ else
 		export DOCKER_ENV=secure
 		export http_proxy=http://adm.secure.home.lecat.network:3128
 		;;
+	UNIFI)
+		export DOCKER_HOST=tcp://unifi.secure.home.lecat.network:2375
+        export DOCKER_ENV=unifi
+        export http_proxy=http://adm.secure.home.lecat.network:3128
+		;;
 	ZABBIX)
 		export DOCKER_HOST=tcp://zabbix.secure.home.lecat.network:2375
 		export DOCKER_ENV=zabbix
