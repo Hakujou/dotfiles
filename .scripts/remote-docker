@@ -78,6 +78,11 @@ else
 		export DOCKER_ENV=ns-iot
 		export http_proxy=http://adm.secure.home.lecat.network:3128
         ;;
+	MEDIA)
+		export DOCKER_HOST=tcp://media.secure.home.lecat.network:2375
+        export DOCKER_ENV=media
+        export http_proxy=http://adm.secure.home.lecat.network:3128
+        ;;
 	esac
 
 	export POWERLEVEL9K_CUSTOM_SWARM_BACKGROUND="white"
