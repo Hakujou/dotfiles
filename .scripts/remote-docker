@@ -11,12 +11,17 @@ else
 	DMZ)
 		export DOCKER_HOST=tcp://swarm$NODE.dmz.home.lecat.network:2375
 		export DOCKER_ENV=dmz
-		export http_proxy=http://adm.secure.home.lecat.network:3128
+		export http_proxy=http://adm.dmz.home.lecat.network:3128
 		;;
 	SECURE)
 		export DOCKER_HOST=tcp://swarm$NODE.secure.home.lecat.network:2375
 		export DOCKER_ENV=secure
 		export http_proxy=http://adm.secure.home.lecat.network:3128
+		;;
+	WEB)
+		export DOCKER_HOST=tcp://web$NODE.dmz.home.lecat.network:2375
+		export DOCKER_ENV=web
+		export http_proxy=http://adm.dmz.home.lecat.network:3128
 		;;
 	UNIFI)
 		export DOCKER_HOST=tcp://unifi.secure.home.lecat.network:2375
@@ -41,7 +46,7 @@ else
 	ZBX-PROXY-DMZ)
 		export DOCKER_HOST=tcp://zabbix-proxy.dmz.home.lecat.network:2375
 		export DOCKER_ENV=zbx-proxy-dmz
-		export http_proxy=http://adm.secure.home.lecat.network:3128
+		export http_proxy=http://adm.dmz.home.lecat.network:3128
 		;;
 	STORAGE)
 		export DOCKER_HOST=tcp://storage.secure.home.lecat.network:2375
@@ -61,17 +66,17 @@ else
 	SMOKEPING-HOME)
 		export DOCKER_HOST=tcp://smokeping.dmz.home.lecat.network:2375
 		export DOCKER_ENV=smokeping-home
-		export http_proxy=http://adm.secure.home.lecat.network:3128
+		export http_proxy=http://adm.dmz.home.lecat.network:3128
 		;;
 	SMOKEPING-OSC)
 		export DOCKER_HOST=tcp://smokeping.dmz.osc.lecat.network:2375
 		export DOCKER_ENV=smokeping-osc
-		export http_proxy=http://adm.secure.home.lecat.network:3128
+		export http_proxy=http://adm.dmz.home.lecat.network:3128
 		;;
 	LG)
 		export DOCKER_HOST=tcp://lg.dmz.home.lecat.network:2375
 		export DOCKER_ENV=lg
-		export http_proxy=http://adm.secure.home.lecat.network:3128
+		export http_proxy=http://adm.dmz.home.lecat.network:3128
 		;;
 	NS-IOT)
 		export DOCKER_HOST=tcp://ns.iot.home.lecat.network:2375
@@ -86,7 +91,32 @@ else
     GIT)
 		export DOCKER_HOST=tcp://git.dmz.home.lecat.network:2375
         export DOCKER_ENV=git
+        export http_proxy=http://adm.dmz.home.lecat.network:3128
+        ;;
+	CONFLUENCE)
+		export DOCKER_HOST=tcp://confluence.dmz.home.lecat.network:2375
+        export DOCKER_ENV=confluence
+        export http_proxy=http://adm.dmz.home.lecat.network:3128
+        ;;
+	JIRA)
+		export DOCKER_HOST=tcp://jira.dmz.home.lecat.network:2375
+        export DOCKER_ENV=jira
+        export http_proxy=http://adm.dmz.home.lecat.network:3128
+        ;;
+	IPAM)
+		export DOCKER_HOST=tcp://ipam.secure.home.lecat.network:2375
+        export DOCKER_ENV=ipam
         export http_proxy=http://adm.secure.home.lecat.network:3128
+        ;;
+	CALIBRE-WEB)
+		export DOCKER_HOST=tcp://calibre-web.dmz.home.lecat.network:2375
+        export DOCKER_ENV=jira
+        export http_proxy=http://adm.dmz.home.lecat.network:3128
+        ;;
+	ABOUT-ME)
+		export DOCKER_HOST=tcp://about-me.dmz.home.lecat.network:2375
+        export DOCKER_ENV=about-me
+        export http_proxy=http://adm.dmz.home.lecat.network:3128
         ;;
 	esac
 
