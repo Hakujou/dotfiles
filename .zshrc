@@ -97,6 +97,8 @@ source $ZSH/oh-my-zsh.sh
 
 # Personal scripts
 export PATH=$PATH:~/.scripts/
+[ -d ~/Library/Python/3.8/bin ] && export PATH=$PATH:~/Library/Python/3.8/bin
+[ -d ~/Library/Python/3.9/bin ] && export PATH=$PATH:~/Library/Python/3.9/bin
 
 # Powerlevel10k style
 POWERLEVEL9K_MODE=nerdfont-complete
