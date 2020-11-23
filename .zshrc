@@ -96,7 +96,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Personal scripts
-export PATH=$PATH:~/.scripts/
+export PATH=/usr/local/sbin:$PATH:~/.scripts/
 [ -d ~/Library/Python/3.8/bin ] && export PATH=$PATH:~/Library/Python/3.8/bin
 [ -d ~/Library/Python/3.9/bin ] && export PATH=$PATH:~/Library/Python/3.9/bin
 
