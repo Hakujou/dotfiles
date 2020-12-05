@@ -24,7 +24,7 @@ else
 		export http_proxy=http://adm.secure.home.lecat.network:3128
 		;;
 	HEALTHCHECKS)
-		export DOCKER_HOST=tcp://healtchecks.secure.home.lecat.network:2375
+		export DOCKER_HOST=tcp://healthchecks.secure.home.lecat.network:2375
 		export DOCKER_ENV=healthchecks
 		export http_proxy=http://adm.secure.home.lecat.network:3128
 		;;
