@@ -136,6 +136,7 @@ work() {
 }
 torque() {
 	amz euw2
+	. ~/Python/venv37/bin/activate
 	export POWERLEVEL9K_CUSTOM_ENV="echo TORQUE"
 	unset POWERLEVEL9K_AWS_SHOW_ON_COMMAND
 	export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(${POWERLEVEL9K_LEFT_PROMPT_ELEMENTS[@]/os_icon})
