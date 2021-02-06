@@ -97,6 +97,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Personal scripts
 export PATH=/usr/local/sbin:$PATH:~/.scripts/
+[ -d ~/Library/Python/3.7/bin ] && export PATH=$PATH:~/Library/Python/3.7/bin
 [ -d ~/Library/Python/3.8/bin ] && export PATH=$PATH:~/Library/Python/3.8/bin
 [ -d ~/Library/Python/3.9/bin ] && export PATH=$PATH:~/Library/Python/3.9/bin
 
