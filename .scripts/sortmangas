@@ -1,5 +1,2 @@
 #!/bin/bash
-
-find * -name '*.*' | while read file; do
-    mv "$file" "./$(tr / _ <<< "$file")"
-done
+find . -name "*.jpg" -print0 | rename --stdin -0 -N "001" '$_=$N . ".jpg"'
