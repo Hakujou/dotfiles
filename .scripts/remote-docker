@@ -110,7 +110,7 @@ else
 		;;
 	CALIBRE-WEB)
 		export DOCKER_HOST=tcp://calibre-web.dmz.home.lecat.network:2375
-	    export DOCKER_ENV=jira
+	    export DOCKER_ENV=calibre-web
 	    export http_proxy=http://adm.dmz.home.lecat.network:3128
 	    ;;
 	ABOUT-ME)
