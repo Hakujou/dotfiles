@@ -1,2 +1,2 @@
-#!/bin/bash
-find . -name "*.jpg" -print0 | rename --stdin -0 -N "001" '$_=$N . ".jpg"'
+#!/bin/zsh
+rename --counter-format "001" -X -e '$_="$N"' ./**/*.(jpg|png|jpeg)
