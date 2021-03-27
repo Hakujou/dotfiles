@@ -68,11 +68,6 @@ else
 		export DOCKER_ENV=smokeping-osc
 		export http_proxy=http://adm.dmz.home.lecat.network:3128
 		;;
-	LG)
-		export DOCKER_HOST=tcp://lg.dmz.home.lecat.network:2375
-		export DOCKER_ENV=lg
-		export http_proxy=http://adm.dmz.home.lecat.network:3128
-		;;
 	NS-IOT)
 		export DOCKER_HOST=tcp://ns.iot.home.lecat.network:2375
 		export DOCKER_ENV=ns-iot
@@ -88,9 +83,9 @@ else
 	    export DOCKER_ENV=git
 	    export http_proxy=http://adm.dmz.home.lecat.network:3128
 	    ;;
-	CONFLUENCE)
-		export DOCKER_HOST=tcp://confluence.dmz.home.lecat.network:2375
-	    export DOCKER_ENV=confluence
+	JDOWNLOADER)
+		export DOCKER_HOST=tcp://jdownloader.dmz.home.lecat.network:2375
+	    export DOCKER_ENV=jdownloader
 	    export http_proxy=http://adm.dmz.home.lecat.network:3128
 	    ;;
 	JIRA)
