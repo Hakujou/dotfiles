@@ -95,6 +95,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Global variables
+SSH_AUTH_SOCK="~/.ssh/agent"
+
 # Personal scripts
 export PATH=/usr/local/sbin:$PATH:~/.scripts/
 [ -d ~/Library/Python/3.7/bin ] && export PATH=$PATH:~/Library/Python/3.7/bin
