@@ -88,9 +88,9 @@ else
 	    export DOCKER_ENV=jdownloader
 	    export http_proxy=http://adm.dmz.home.lecat.network:3128
 	    ;;
-	JIRA)
-		export DOCKER_HOST=tcp://jira.dmz.home.lecat.network:2375
-	    export DOCKER_ENV=jira
+	N8N)
+		export DOCKER_HOST=tcp://n8n.dmz.home.lecat.network:2375
+	    export DOCKER_ENV=n8n
 	    export http_proxy=http://adm.dmz.home.lecat.network:3128
 	    ;;
 	IPAM)
