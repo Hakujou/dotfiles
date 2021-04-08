@@ -96,7 +96,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Global variables
-SSH_AUTH_SOCK="~/.ssh/agent"
+SSH_AUTH_SOCK="/Users/romain/.ssh/agent"
 
 # Personal scripts
 export PATH=/usr/local/sbin:$PATH:~/.scripts/
