@@ -1,0 +1,6 @@
+{
+  "ca-url": "https://ca.secure.home.lecat.network",
+  "fingerprint": "5f64ce2b9028ea54cf18f2a2a8743e828ea11c5ed95eb15c97c1d704dea9be93",
+  "root": "/Users/romain/.step/certs/root_ca.crt",
+  "redirect-url": ""
+}
