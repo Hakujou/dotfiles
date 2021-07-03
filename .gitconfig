@@ -11,3 +11,7 @@
 	gpgsign = true
 [core]
 	mergeoptions = --no-edit
+[init]
+        defaultBranch = master
+[pull]
+        rebase = false
